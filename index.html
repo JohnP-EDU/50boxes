@@ -16,9 +16,14 @@
 </head>
 <body>
   <script>
+    var nums = [];
     for (var i=1; i<=20; i++) {
       var num = Math.floor(Math.random() * 160) + 1;
-      document.write("<div class='box'>" + num + "</div>");
+      nums.push(num);
+    }
+    nums.sort(function(a, b){return a-b});
+    for (var i=0; i<nums.length; i++) {
+      document.write("<div class='box'>" + nums[i] + "</div>");
     }
   </script>
 </body>
