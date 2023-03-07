@@ -14,31 +14,30 @@
   </head>
   <body>
     <script>
-     let boxes = 30;
-     let numbers = [];
-     let randomNumber = 101;
-     numbers.push(randomNumber);
-     for (let i = 0; i < boxes - 1; i++) {
-        randomNumber = Math.floor(Math.random() * 160) + 1;
-        while (numbers.indexOf(randomNumber) !== -1 || randomNumber === 101) {
-          randomNumber = Math.floor(Math.random() * 160) + 1;
-        }
-        numbers.push(randomNumber);
-     }
-     numbers.push(160);
-     numbers.sort(function(a, b){return a-b});
-     for (let i = 0; i < boxes; i++) {
-        let box = document.createElement("div");
-        box.className = "box";
-        let number = document.createElement("span");
-        number.innerHTML = numbers[i];
-        number.style.display = "none";
-        box.appendChild(number);
-        box.addEventListener("click", function() {
-          number.style.display = "inline";
-        });
-        document.body.appendChild(box);
-      }
+     let boxes = 20;
+let numbers = [];
+numbers.push(2);
+for (let i = 0; i < boxes - 2; i++) {
+  let randomNumber = Math.floor(Math.random() * 158) + 3;
+  while (numbers.indexOf(randomNumber) !== -1) {
+    randomNumber = Math.floor(Math.random() * 158) + 3;
+  }
+  numbers.push(randomNumber);
+}
+numbers.push(160);
+numbers.sort(function(a, b){return a-b});
+for (let i = 0; i < boxes; i++) {
+  let box = document.createElement("div");
+  box.className = "box";
+  let number = document.createElement("span");
+  number.innerHTML = numbers[i];
+  number.style.display = "none";
+  box.appendChild(number);
+  box.addEventListener("click", function() {
+    number.style.display = "inline";
+  });
+  document.body.appendChild(box);
+}
     </script>
   </body>
 </html>
