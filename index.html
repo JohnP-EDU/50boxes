@@ -12,30 +12,37 @@
       }
     </style>
   </head>
-  <body>
-    <script>
-let boxes = 20;
-let numbers = [];
-for (let i = 0; i < boxes; i++) {
-  let randomNumber = Math.floor(Math.random() * 160) + 1;
-  while (numbers.indexOf(randomNumber) !== -1) {
-    randomNumber = Math.floor(Math.random() * 160) + 1;
-  }
-  numbers.push(randomNumber);
-}
-numbers.sort(function(a, b){return a-b});
-for (let i = 0; i < boxes; i++) {
-  let box = document.createElement("div");
-  box.className = "box";
-  let number = document.createElement("span");
-  number.innerHTML = numbers[i];
-  number.style.display = "none";
-  box.appendChild(number);
-  box.addEventListener("click", function() {
-    number.style.display = "inline";
-  });
-  document.body.appendChild(box);
-}
-    </script>
-  </body>
+<body>
+  <style>
+    .box {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      text-align: center;
+      margin: 5px;
+      border: 1px solid gray;
+    }
+  </style>
+
+  <script>
+    function generateNumbers() {
+      var boxes = document.getElementsByClassName("box");
+      for (var i = 0; i < boxes.length; i++) {
+        var randomNumber = Math.floor(Math.random() * 160) + 1;
+        while (randomNumber == 101) {
+                randomNumber = Math.floor(Math.random() * 160) + 1;    
+            }
+        boxes[i].innerText = randomNumber;
+      }
+    }
+  </script>
+
+  <div id="container">
+    <div class="box" onclick="this.style.display='none'"></div>
+    <!-- 19 more boxes -->
+  </div>
+
+  <button onclick="generateNumbers()">Generate Numbers</button>
+
+</body>
 </html>
