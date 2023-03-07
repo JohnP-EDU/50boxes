@@ -1,17 +1,4 @@
-function displayBoxes() {
-  for (let i = 0; i < 50; i++) {
-    let number = Math.floor(Math.random() * 160) + 1;
-    let div = document.createElement("div");
-    div.className = "box";
-    div.style.width = "20px";
-    div.style.height = "20px";
-    div.style.backgroundColor = "blue";
-    div.onclick = function() {
-      div.innerHTML = number;
-      div.style.backgroundColor = "red";
-    };
-    document.body.appendChild(div);
-  }
+for (var i=1; i<=20; i++) {
+    var num = Math.floor(Math.random() * 160) + 1;
+    document.write("Box " + i + ": " + num + "<br>");
 }
-
-displayBoxes();
