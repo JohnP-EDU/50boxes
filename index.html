@@ -1,30 +1,37 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <style>
-    .box {
-      width: 50px;
-      height: 50px;
-      background-color: #ccc;
-      display: inline-block;
-      margin: 10px;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 30px;
-      line-height: 50px;
-    }
-  </style>
-</head>
-<body>
-  <script>
-    var nums = [];
-    for (var i=1; i<=20; i++) {
-      var num = Math.floor(Math.random() * 160) + 1;
-      nums.push(num);
-    }
-    nums.sort(function(a, b){return a-b});
-    for (var i=0; i<nums.length; i++) {
-      document.write("<div class='box'>" + nums[i] + "</div>");
-    }
-  </script>
-</body>
+  <head>
+    <style>
+      .box {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        display: inline-block;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let boxes = 20;
+      let numbers = [];
+      for (let i = 0; i < boxes; i++) {
+        numbers.push(Math.floor(Math.random() * 160) + 1);
+      }
+      numbers.sort(function(a, b){return a-b});
+      for (let i = 0; i < boxes; i++) {
+        let box = document.createElement("div");
+        box.className = "box";
+        let number = document.createElement("span");
+        number.innerHTML = numbers[i];
+        number.style.display = "none";
+        box.appendChild(number);
+        box.addEventListener("click", function() {
+          number.style.display = "inline";
+        });
+        document.body.appendChild(box);
+      }
+    </script>
+  </body>
 </html>
